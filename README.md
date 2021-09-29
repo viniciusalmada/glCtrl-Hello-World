@@ -1,4 +1,4 @@
-# glCtrl-Hello-World
+# Treinamento glControl 
 
 Projeto com uso de IUP e glControl para exemplificar a aplicação dessas bibliotecas.
 
