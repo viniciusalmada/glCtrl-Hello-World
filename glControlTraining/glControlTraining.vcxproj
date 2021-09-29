@@ -151,7 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CanvasController.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainDialog.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CanvasController.h" />
+    <ClInclude Include="MainDialog.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
