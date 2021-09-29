@@ -2,6 +2,14 @@
 
 Projeto com uso de IUP e glControl para exemplificar a aplicação dessas bibliotecas.
 
+## Pontos de atenção
+
+- A **glCtrl** roda sobre canvas de OpenGL, como o `IupGLCanvas`.
+- Chamar a função `IupGLCanvasOpen()` após o `IupOpen()`.
+- A função de inicializar a **glCtrl**, desenhar e configurar o canvas pode ser a callback de _ACTION_ do canvas.
+- Ao inicializar a **glCtrl** é preciso chamar a função `IupGLMakeCurrent()` para poder usar texturas.
+- Para usar apenas as cores da textura, a cor do elemento precisa ser branca (#FFFFFF).
+
 ## Diretórios adicionais de cabeçalhos 
 
 - T:\lib\mgeo\iup\include
