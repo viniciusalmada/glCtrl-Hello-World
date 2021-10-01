@@ -3,10 +3,15 @@
 #include <iup.h>
 #include <iupgl.h>
 
+#include "CanvasController.h"
+#include "Utils.h"
+
+std::string MainDialog::executable_path;
+
 MainDialog::MainDialog(int* argc, char*** argv)
 {
   if (*argc == 1)
-    this->m_executable_path = *argv[0];
+    this->executable_path = *argv[0];
 
   IupOpen(argc, argv);
   IupGLCanvasOpen();
@@ -19,9 +24,12 @@ MainDialog::MainDialog(int* argc, char*** argv)
 }
 
 
-void MainDialog::gl_ctrl_action_cb(Ihandle* canvas)
+int MainDialog::gl_ctrl_action_cb(Ihandle* canvas)
 {
-
+  CanvasController cc(canvas);
+  const std::string tex_dir = Utils::get_textures_directory(executable_path);
+  cc.initialize(tex_dir);
+  return IUP_DEFAULT;
 }
 
 void MainDialog::build_dialog()
@@ -30,7 +38,7 @@ void MainDialog::build_dialog()
   IupSetAttribute(canvas, "SIZE", "x35");
   IupSetAttribute(canvas, "BORDER", "NO");
   IupSetAttribute(canvas, "EXPAND", "HORIZONTAL");
-  IupSetCallback(canvas, "ACTION", (Icallback)MainDialog::gl_ctrl_action_cb);
+  IupSetCallback(canvas, "ACTION", gl_ctrl_action_cb);
 
   Ihandle* text_area = IupText(nullptr);
   IupSetHandle("text_area", text_area);

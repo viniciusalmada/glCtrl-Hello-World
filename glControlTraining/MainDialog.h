@@ -5,14 +5,15 @@
 
 class MainDialog
 {
-  static void gl_ctrl_action_cb(Ihandle* canvas);
 
-  std::string m_executable_path;
-
-  void build_dialog();
+  static void build_dialog();
 
 public:
   MainDialog(int* argc, char*** argv);
+
+  static std::string executable_path;
+
+  static int gl_ctrl_action_cb(Ihandle* canvas);
 };
 
 #endif
